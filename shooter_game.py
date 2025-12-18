@@ -14,12 +14,12 @@ font.init()
 font1 = font.SysFont('Gill Sans MT', 80)
 win = font1.render('YOU WIN!', True, (255, 255, 255))
 lose = font1.render('YOU LOSE!', True, (180, 0, 0))
-font2 = font.SysFont('Gill Sans MT', 36)
+font2 = font.SysFont('Gill Sans MT', 36)   
 
 
 #we need the following images:
 img_back = "sea.jpg" # game background
-img_hero = "rokety.png" # hero
+img_hero = "rod.png" # hero
 img_enemy = "fishy.png" # enemy
 
 
@@ -54,7 +54,7 @@ class Player(GameSprite):
         if keys[K_RIGHT] and self.rect.x < win_width - 80:
             self.rect.x += self.speed
     def fire(self):
-        bullet = Bullet('bullet.png', self.rect.centerx, self.rect.top, 15, 20, -15)
+        bullet = Bullet('hook.png', self.rect.centerx, self.rect.top, 35, 50, -15)
         bullets.add(bullet)
 #enemy sprite class
 class Enemy(GameSprite):
@@ -116,10 +116,10 @@ while game:
 
 
         #write text on the screen
-        text = font2.render("Score: " + str(score), 1, (255, 255, 255))
+        text = font2.render("Catches: " + str(score), 1, (255, 255, 255))
         window.blit(text, (10, 20))
 
-        text_lose = font2.render("Missed: " + str(lost), 1, (255, 255, 255))
+        text_lose = font2.render("Let go: " + str(lost), 1, (255, 255, 255))
         window.blit(text_lose, (10, 50))
 
 
